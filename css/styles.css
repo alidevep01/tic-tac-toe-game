@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400;500;600;700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Edu VIC WA NT Beginner", cursive;
+}
+
+h1.heading {
+  text-align: center;
+  padding-top: 20px;
+}
+
+div.main-container {
+  border-bottom: 1px solid;
+  margin: 50px;
+  box-shadow: 10px 10px 10px 10px aliceblue;
+  position: relative;
+}
+
+.users {
+  display: flex;
+  justify-content: space-around;
+}
+
+.player1,
+.player2,
+.draw {
+  font-weight: bold;
+  font-size: 2rem;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.gameGrid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 50px;
+  margin-top: inherit;
+  margin-bottom: inherit;
+  align-items: center;
+  justify-content: center;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.gameGrid .grid {
+  flex: 0 0 32%;
+  max-width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+
+@media (max-width: 1330px) {
+  .gameGrid {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
+
+@media (max-width: 1120px) {
+  .gameGrid {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+}
+
+@media (max-width: 975px) {
+  .gameGrid {
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+}
+
+@media (min-width: 1620px) {
+  .gameGrid {
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+}

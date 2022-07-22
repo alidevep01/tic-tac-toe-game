@@ -11,21 +11,77 @@
     <div class="main-container">
       <h1 class="heading">Tic Tac Toe</h1>
       <div class="users">
-        <div class="player1">player 1</div>
-        <div class="draw">draw</div>
-        <div class="player2">player 2</div>
+        <div class="player1">
+          <p class="player1Name">Player 1</p>
+          <p class="player1Weapon"></p>
+          <p class="player1Wins">Your Wins</p>
+          <p class="player1score">0</p>
+          <div id="myModal" class="modal1">
+            <!-- Modal content -->
+            <div class="modal-content-player1">
+              <form action="#">
+                <label for="name1">Player 1 Name</label>
+                <span class="close">X</span>
+                <br />
+                <input type="text" class="player1Input" /><br />
+                <div class="player1sign">
+                  <p class="selectWeaponp1">Select Your Weapon</p>
+                  <span><button class="myButton" id="player1X">X</button></span>
+                  <span><button class="myButton" id="player1O">O</button></span>
+                </div>
+                <input
+                  type="submit"
+                  value="Submit"
+                  class="myButton"
+                  id="player1Btn"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="draw">
+          <p class="draw">Draw</p>
+          <p class="drawScore">0</p>
+        </div>
+        <div class="player2">
+          <p class="player2Name">Player 2</p>
+          <p class="player2Weapon"></p>
+          <p class="player2Wins">Your Wins</p>
+          <p class="player2score">0</p>
+          <div id="myModal" class="modal2">
+            <!-- Modal content -->
+            <div class="modal-content-player2">
+              <form action="#">
+                <label for="name2">Player 2 Name</label>
+                <span class="close">X</span>
+                <br />
+                <input type="text" class="player2Input" /><br />
+                <div class="player2sign">
+                  <p class="displayWeapon">Your Weapon</p>
+                  <p class="playerweapon">o</p>
+                </div>
+                <input
+                  type="submit"
+                  value="Submit"
+                  class="myButton"
+                  id="player2Btn"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="gameGrid">
-        <div class="grid" id="1">1</div>
-        <div class="grid" id="2">2</div>
-        <div class="grid" id="3">3</div>
-        <div class="grid" id="4">4</div>
-        <div class="grid" id="5">5</div>
-        <div class="grid" id="6">6</div>
-        <div class="grid" id="7">7</div>
-        <div class="grid" id="8">8</div>
-        <div class="grid" id="9">9</div>
+        <div class="grid" id="1"></div>
+        <div class="grid" id="2"></div>
+        <div class="grid" id="3"></div>
+        <div class="grid" id="4"></div>
+        <div class="grid" id="5"></div>
+        <div class="grid" id="6"></div>
+        <div class="grid" id="7"></div>
+        <div class="grid" id="8"></div>
+        <div class="grid" id="9"></div>
       </div>
     </div>
     <script src="./js/app.js"></script>

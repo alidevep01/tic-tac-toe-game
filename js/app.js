@@ -150,7 +150,7 @@ function currentWinner() {
     );
     if (check) {
       highlightCells(possibility);
-      alert("you win");
+      alert(currentPlayer + " you win");
 
       document.querySelector(".gameGrid").style.pointerEvents = "none";
     }

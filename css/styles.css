@@ -7,9 +7,20 @@ body {
   font-family: "Edu VIC WA NT Beginner", cursive;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 h1.heading {
   text-align: center;
-  padding-top: 20px;
+}
+
+#restart {
+  cursor: pointer;
+  border: none;
 }
 
 div.main-container {
@@ -60,6 +71,20 @@ div.main-container {
   align-items: center;
   border-radius: 10px;
   background-color: aliceblue;
+  cursor: pointer;
+}
+
+div.grid {
+  display: flex;
+  font-size: 30px;
+  font-weight: 900;
+  border: 1px solid black;
+}
+
+div.grid:hover,
+div.grid:focus {
+  background-color: black;
+  color: aliceblue;
 }
 
 /* The Modal (background) */

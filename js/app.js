@@ -30,7 +30,8 @@ const player1 = document.querySelector(".player1");
 const player2 = document.querySelector(".player2");
 const draw = document.querySelector(".draw");
 const gameGrid = document.querySelector(".gameGrid"); //parentGrid
-const grid = document.querySelector(".grid");
+const grid = document.getElementsByClassName("grid");
+
 const modal1 = document.querySelector(".modal1");
 const modal2 = document.querySelector(".modal2");
 const span = document.getElementsByClassName("close")[0];
@@ -38,6 +39,9 @@ const player1Btn = document.getElementById("player1Btn");
 const player2Btn = document.getElementById("player2Btn");
 const player1x = document.getElementById("player1X");
 const player1o = document.getElementById("player1O");
+let player1Name = document.querySelector(".player1Input").innerText;
+let player2Name = document.querySelector(".player2Input").innerText;
+let oTurn;
 let player1Score = 0;
 let player2Score = 0;
 let drawScore = 0;
@@ -76,19 +80,26 @@ window.onclick = (event) => {
     modal2.style.display = "none";
   }
 };
+let player1Weapon;
+let player2Weapon;
+let currentPlayer;
+let player1valuex;
+let player1valueo;
 
 //player1 Weapon select
 player1x.onclick = () => {
-  const player1valuex = player1x.innerText;
-  const a = (document.querySelector(".player1Weapon").innerText =
-    player1valuex);
+  player1valuex = player1x.innerText;
+  currentPlayer = player1x.innerText;
+  player1Weapon = document.querySelector(".player1Weapon").innerText =
+    player1valuex;
   document.querySelector(".player2Weapon").innerText = "O";
   document.querySelector(".playerweapon").innerText = "O";
   player1x.style.background = "green";
   player1o.style.background = "black";
 };
 player1o.onclick = () => {
-  const player1valueo = player1o.innerText;
+  player1valueo = player1o.innerText;
+  currentPlayer = player1o.innerText;
   const b = (document.querySelector(".player1Weapon").innerText =
     player1valueo);
   document.querySelector(".player2Weapon").innerText = "X";
@@ -96,3 +107,88 @@ player1o.onclick = () => {
   player1x.style.background = "black";
   player1o.style.background = "green";
 };
+
+// const grid = document.querySelectorAll(".grid");
+// grid.addEventListener("click", nextmove);
+// console.log(grid);
+
+// function nextmove() {
+//   let currentMove = "";
+//   console.log(player1Weapon);
+//   // player1Weapon = player1Weapon == ""
+// }
+//grab the id store in an array
+
+// let winPossibilities = [
+//   [1, 2, 3],== [0] == currentPlayer
+//   [4, 5, 6],== [1] == currentPlayer
+//   [7, 8, 9],== [2] == currentPlayer
+//   [1, 4, 7],== [3] == currentPlayer
+//   [4, 5, 6],== [4] == currentPlayer
+//   [7, 8, 9],== [5] == currentPlayer
+//   [1, 5, 9],== [6] == currentPlayer
+//   [3, 5, 7],== [7] == currentPlayer
+// ];
+let winPossibilities = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
+let player1array = [];
+let player2array = [];
+let currentTurn = true;
+function currentWinner() {
+  winPossibilities.forEach((possibility) => {
+    let check = possibility.every(
+      (index) => grid[index].innerText.trim() == currentPlayer
+    );
+    if (check) {
+      alert("you win");
+      return;
+    }
+  });
+}
+document.querySelectorAll(".grid").forEach((element, index, array) => {
+  element.onclick = (e) => {
+    player1Weapon = document.querySelector(".player1Weapon").innerText;
+    player2Weapon = document.querySelector(".player2Weapon").innerText;
+    if (element.innerText.trim() != "") return;
+
+    if (currentTurn) {
+      player1array.push(e.target.id);
+      currentTurn = false;
+    } else {
+      player2array.push(e.target.id);
+      currentTurn = true;
+    }
+
+    // player1array += e.target.id;
+    // player2array += e.target.id;
+    element.innerText = currentPlayer;
+    currentWinner(currentPlayer);
+    currentPlayer =
+      currentPlayer == player1Weapon ? player2Weapon : player1Weapon;
+
+    // winPossibilities.forEach(
+    //   (item, index, array) => console.log(item),
+    //   console.log(player1array),
+    //   console.log(currentPlayer)
+    // );
+    // for (let i = 0; i < winPossibilities.length; i++) {
+    //   for (let j = 0; j < winPossibilities[i].length; j++) {
+    //     if (winPossibilities[i][j] == player1array) {
+    //       //   alert("You win");
+    //       //   console.log(winPossibilities[i][j]);
+    //     }
+    //     console.log(winPossibilities[i][j]);
+    //     console.log(player1array);
+    //   }
+    // }
+  };
+});

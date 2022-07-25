@@ -149,9 +149,16 @@ function currentWinner() {
       (index) => grid[index].innerText.trim() == currentPlayer
     );
     if (check) {
+      highlightCells(possibility);
       alert("you win");
-      return;
+
+      document.querySelector(".gameGrid").style.pointerEvents = "none";
     }
+  });
+}
+function highlightCells(possibility) {
+  possibility.forEach(function (index) {
+    grid[index].classList.add("highlight");
   });
 }
 document.querySelectorAll(".grid").forEach((element, index, array) => {

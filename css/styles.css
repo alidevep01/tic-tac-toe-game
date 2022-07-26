@@ -25,14 +25,16 @@ h1.heading {
 
 div.main-container {
   border-bottom: 1px solid;
-  margin: 50px;
+  margin: 20px 100px;
   box-shadow: 10px 10px 10px 10px aliceblue;
   position: relative;
 }
 
 .users {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  border: 5px solid black;
+  border-radius: 20px;
 }
 
 .player1,
@@ -42,6 +44,7 @@ div.main-container {
   font-size: 2rem;
   padding: 10px;
   text-align: center;
+  padding-left: 0px;
 }
 
 .player1Name,
@@ -53,8 +56,6 @@ div.main-container {
   display: flex;
   flex-wrap: wrap;
   margin: 0 50px;
-  margin-top: inherit;
-  margin-bottom: inherit;
   align-items: center;
   justify-content: center;
   padding-left: 25%;

@@ -31,6 +31,7 @@ const player2 = document.querySelector(".player2");
 const draw = document.querySelector(".draw");
 const gameGrid = document.querySelector(".gameGrid"); //parentGrid
 const grid = document.getElementsByClassName("grid");
+const heading = document.querySelector(".heading");
 
 const modal1 = document.querySelector(".modal1");
 const modal2 = document.querySelector(".modal2");
@@ -129,7 +130,8 @@ function currentWinner() {
     );
     if (check) {
       highlights(possibility);
-      document.querySelector(".heading").innerText = `${currentPlayer} Wins!`;
+      heading.innerText = `${currentPlayer} Wins!`;
+      heading.style.color = "green";
       document.querySelector(".gameGrid").style.pointerEvents = "none";
     }
   });

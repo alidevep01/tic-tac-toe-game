@@ -26,6 +26,7 @@ c|  7 | 8  | 9  |
 //  else DRAW
 
 //DOM elements
+const restart = document.getElementById("restart");
 const player1 = document.querySelector(".player1");
 const player2 = document.querySelector(".player2");
 const draw = document.querySelector(".draw");
@@ -148,14 +149,6 @@ document.querySelectorAll(".grid").forEach((element, index, array) => {
     player1Weapon = document.querySelector(".player1Weapon").innerText;
     player2Weapon = document.querySelector(".player2Weapon").innerText;
     if (element.innerText.trim() != "") return;
-
-    if (currentTurn) {
-      player1array.push(e.target.id);
-      currentTurn = false;
-    } else {
-      player2array.push(e.target.id);
-      currentTurn = true;
-    }
     element.innerText = currentPlayer;
     currentWinner(currentPlayer);
     currentPlayer =

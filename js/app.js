@@ -108,27 +108,6 @@ player1o.onclick = () => {
   player1o.style.background = "green";
 };
 
-// const grid = document.querySelectorAll(".grid");
-// grid.addEventListener("click", nextmove);
-// console.log(grid);
-
-// function nextmove() {
-//   let currentMove = "";
-//   console.log(player1Weapon);
-//   // player1Weapon = player1Weapon == ""
-// }
-//grab the id store in an array
-
-// let winPossibilities = [
-//   [1, 2, 3],== [0] == currentPlayer
-//   [4, 5, 6],== [1] == currentPlayer
-//   [7, 8, 9],== [2] == currentPlayer
-//   [1, 4, 7],== [3] == currentPlayer
-//   [4, 5, 6],== [4] == currentPlayer
-//   [7, 8, 9],== [5] == currentPlayer
-//   [1, 5, 9],== [6] == currentPlayer
-//   [3, 5, 7],== [7] == currentPlayer
-// ];
 let winPossibilities = [
   [0, 1, 2],
   [3, 4, 5],
@@ -149,18 +128,19 @@ function currentWinner() {
       (index) => grid[index].innerText.trim() == currentPlayer
     );
     if (check) {
-      highlightCells(possibility);
-      alert(currentPlayer + " you win");
-
+      highlights(possibility);
+      document.querySelector(".heading").innerText = `${currentPlayer} Wins!`;
       document.querySelector(".gameGrid").style.pointerEvents = "none";
     }
   });
 }
-function highlightCells(possibility) {
+
+function highlights(possibility) {
   possibility.forEach(function (index) {
-    grid[index].classList.add("highlight");
+    grid[index].style.background = "grey";
   });
 }
+
 document.querySelectorAll(".grid").forEach((element, index, array) => {
   element.onclick = (e) => {
     player1Weapon = document.querySelector(".player1Weapon").innerText;
@@ -174,28 +154,9 @@ document.querySelectorAll(".grid").forEach((element, index, array) => {
       player2array.push(e.target.id);
       currentTurn = true;
     }
-
-    // player1array += e.target.id;
-    // player2array += e.target.id;
     element.innerText = currentPlayer;
     currentWinner(currentPlayer);
     currentPlayer =
       currentPlayer == player1Weapon ? player2Weapon : player1Weapon;
-
-    // winPossibilities.forEach(
-    //   (item, index, array) => console.log(item),
-    //   console.log(player1array),
-    //   console.log(currentPlayer)
-    // );
-    // for (let i = 0; i < winPossibilities.length; i++) {
-    //   for (let j = 0; j < winPossibilities[i].length; j++) {
-    //     if (winPossibilities[i][j] == player1array) {
-    //       //   alert("You win");
-    //       //   console.log(winPossibilities[i][j]);
-    //     }
-    //     console.log(winPossibilities[i][j]);
-    //     console.log(player1array);
-    //   }
-    // }
   };
 });

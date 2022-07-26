@@ -158,10 +158,6 @@ div.grid:focus {
   margin: 10px 0;
 }
 
-.highlight {
-  background-color: "grey";
-}
-
 @media (max-width: 1330px) {
   .gameGrid {
     padding-left: 20%;

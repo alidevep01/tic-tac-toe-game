@@ -158,6 +158,12 @@ div.grid:focus {
 .selectWeaponp2 {
   margin: 10px 0;
 }
+@media (min-width: 1620px) {
+  .gameGrid {
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+}
 
 @media (max-width: 1330px) {
   .gameGrid {
@@ -180,9 +186,9 @@ div.grid:focus {
   }
 }
 
-@media (min-width: 1620px) {
+@media (max-width: 1430px) {
   .gameGrid {
-    padding-left: 30%;
-    padding-right: 30%;
+    padding-left: 20%;
+    padding-right: 20%;
   }
 }
